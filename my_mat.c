@@ -7,6 +7,29 @@ void mat(int a[10][10]){
             scanf("%d",&a[i][j]);
         }
     }
+    int x;
+    int p[10][10];
+    for(int k=0;k<10;k++){
+        for(int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                x = a[i][k] + a[k][j];
+                if(a[i][j] > x && a[i][k] > 0 && a[k][j] > 0) {
+                    p[i][j] = x;
+                }
+                else if((a[i][j] == 0 && (a[i][k] > 0 && a[k][j] > 0))&&(i != j)){
+                    p[i][j] = x;
+                }
+                else{
+                    p[i][j] = a[i][j];
+                }
+            }
+        }
+        for(int i = 0;i<10;i++){
+            for(int j = 0;j<10;j++){
+                a[i][j] = p[i][j];
+            }
+        }
+    }
 }
 
 
@@ -22,26 +45,6 @@ void check(int a[10][10]){
 
 
 void path(int l,int m,int a[10][10]){
-    int x;
-    int p[10][10];
-    for(int k=0;k<10;k++){
-        for(int i=0;i<10;i++){
-            for(int j=0;j<10;j++){
-                x = a[i][k] + a[k][j];
-                if((a[i][j] > x && x != 0) && (a[i][k] !=0 && a[k][j]) != 0){
-                    p[i][j] = x;
-                }
-                else{
-                    p[i][j] = a[i][j];
-                }
-            }
-        }
-        for(int i = 0;i<10;i++){
-            for(int j = 0;j<10;j++){
-                a[i][j] = p[i][j];
-            }
-        }
-    }
     if(a[l][m] == 0){
         printf("-1\n");
     }
