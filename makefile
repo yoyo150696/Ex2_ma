@@ -4,7 +4,7 @@ OBJECTS_MAIN=main.o
 OBJECTS_LIB=my_mat.o
 FLAGS= -Wall -g
 
-all: libmy_mat.so libmy_mat.a progmains progmaind	
+all: libmy_mat.a progmains	
 progmains: $(OBJECTS_MAIN) libmy_mat.a 
 	$(CC) $(FLAGS) -o connections $(OBJECTS_MAIN) libmy_mat.a
 libmy_mat.a: $(OBJECTS_LIB)
