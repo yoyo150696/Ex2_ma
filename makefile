@@ -6,11 +6,7 @@ FLAGS= -Wall -g
 
 all: libmy_mat.so libmy_mat.a progmains progmaind	
 progmains: $(OBJECTS_MAIN) libmy_mat.a 
-	$(CC) $(FLAGS) -o progmains $(OBJECTS_MAIN) libmy_mat.a
-progmaind: $(OBJECTS_MAIN)
-	$(CC) $(FLAGS) -o progmaind $(OBJECTS_MAIN) ./libmy_mat.so
-libmy_mat.so: $(OBJECTS_LIB)
-	$(CC) -shared -o libmy_mat.so $(OBJECTS_LIB)
+	$(CC) $(FLAGS) -o connections $(OBJECTS_MAIN) libmy_mat.a
 libmy_mat.a: $(OBJECTS_LIB)
 	$(AR) -rcs libmy_mat.a $(OBJECTS_LIB)	
 my_mat.o: my_mat.c my_mat.h
