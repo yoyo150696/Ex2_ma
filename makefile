@@ -17,4 +17,4 @@ main.o: main.c my_mat.h
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so progmains progmaind
+	rm -f *.o *.a progmains connections
